@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://emerso-n.github.io/my-base-css/base.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+    <link rel="stylesheet" href="css.css" />
+    <script src="javascript.js" defer></script>
+  </head>
+  <body>
+    <div id="page_con">
+      <header>MyReadingList.gov</header>
+      <div id="slice">
+        <div id="books_con">
+          <div class="book-border">
+            <div class="book-header">
+              <div class="header-txt">Book</div>
+              <button class="x-btn"><div></div></button>
+            </div>
+            <div class="book">
+              <div class="book-title">The Three-Body Problem</div>
+              <div class="book-author">Cixin Liu</div>
+              <div class="book-pages">416 pgs</div>
+              <div class="book-read"><label for="read-cb">Read</label><input type="checkbox" name="read-cb" id="read-cb" /></div>
+            </div>
+          </div>
+        </div>
+        <form id="form_con" action="post" autocomplete="off">
+          <div class="input">
+            <input type="text" name="input-title" id="input-title" />
+            <label for="input-title">Title</label>
+          </div>
+          <div class="input">
+            <input type="text" name="input-author" id="input-author" />
+            <label for="input-author">Author</label>
+          </div>
+          <div class="input">
+            <input type="number" name="input-pages" id="input-pages" />
+            <label for="input-pages">Pages</label>
+          </div>
+          <div class="input-cb">
+            <label for="input-read">Read?</label>
+            <input type="checkbox" name="input-read" id="input-read" />
+          </div>
+          <div id="button"><button id="submit-btn" type="submit">Add Book</button></div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

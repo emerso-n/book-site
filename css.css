@@ -1,0 +1,177 @@
+:root{
+  --grey: #C0C0C0;
+  --lightgrey: #CBCBCB;
+  --darkgrey: grey;
+  --blue: #004488;
+  --black: black;
+  --white: white;
+  --font: 'VT323', monospace;
+}
+#page_con{
+/*   font-family: var(--font); */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#slice{
+  flex: 1;
+  display: flex;
+  background: black;
+  gap: 1px;
+/*   height: 100vh; */
+/*   align-items: center; */
+}
+header{
+  background: #3bbe8d;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  border: 1px solid black;
+  border-width: 0 0 1px 0;
+}
+#books_con{
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fit, minmax(min-content, 1px)); /*theres no way this is how you do this */
+  gap: 10px;
+  flex: 1;
+  background: white;
+}
+.book-border{
+  border: 1px solid var(--black);
+  background: var(--grey);
+  padding: 3px;
+}
+.book-header{
+  display: flex;
+  height: 21px;
+}
+.header-txt{
+  background: var(--blue);
+  color: white;
+  text-align: center;
+  border: 1px solid var(--black);
+  border-width: 2px 0 1px 1px;
+  flex: 1;
+  padding-left: 21px;
+}
+.x-btn{
+  background: var(--lightgrey);
+  border: 1px solid var(--black);
+  height: 21px;
+  width: 21px;
+  position: relative;
+}
+.x-btn:before, .x-btn:after{
+  content: "";
+  position: absolute;
+  border: 1px solid white;
+  border-color: transparent black black transparent;
+  inset: 0px;
+}
+
+.x-btn:after{
+  border-color: white black black white;
+  inset: 1px;
+}
+.x-btn:active{
+  transform: rotate(180deg);
+}
+.x-btn div{
+  width: 21px;
+  height: 21px;
+  position: relative;
+}
+.x-btn:active div{
+  transform: translate(-1px, -1px);
+}
+.x-btn div:before, .x-btn div:after{
+  content: "";
+  position: absolute;
+  margin: auto;
+  inset: -1px 1px 0 0;
+  background: black;
+  height: 11px;
+  width: 2px;
+  transform: rotate(45deg);
+}
+.x-btn div:after{
+  transform: rotate(-45deg);
+}
+.book{
+  padding: .5em;
+  border: 1px solid var(--black);
+  background: var(--white);
+}
+.book-title{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.book-read{
+  display: flex;
+  justify-content: flex-end;
+  gap: 3px;
+}
+
+#form_con{
+  background: var(--lightgrey);
+  padding: 1rem 4rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  
+}
+.input{
+  display: flex;
+  position: relative;
+  flex-direction: column-reverse;
+}
+.input input{
+  border: 1px solid black;
+  height: 22px;
+  padding-left: 4px;
+}
+.input label{
+  height: 20px;
+}
+.input input:focus, .input input:focus-visible{
+  outline: none;
+  background: blue;
+  color: white;
+}
+input:focus-visible + label:after , input:focus-visible + label:before{
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 21px 1px 1px 1px;
+  border: 2px solid white;
+}
+input:focus-visible + label:before{
+  z-index: 2;
+  inset: 22px 2px 2px 2px;
+  border: 1px dashed black;
+}
+.input-cb{
+  align-self: flex-end;
+/*   gap: 5px; */
+}
+#submit-btn{
+  border: 2px solid black;
+  border-color: white var(--darkgrey) var(--darkgrey) white;
+  padding: 5px 1rem;
+  white-space: nowrap;
+}
+#submit-btn:active{
+  border-color: var(--darkgrey) white white var(--darkgrey);
+  background: var(--grey);
+}
+#button{
+  inset: 0 0 0 0;
+  border: 1px solid black;
+  border-radius: 2px;
+  width: min-content;
+  align-self: center;
+  margin-top: 8px;
+}
