@@ -7,6 +7,9 @@
   --white: white;
   --font: 'VT323', monospace;
 }
+.hide{
+  display: none !important;
+}
 #page_con{
 /*   font-family: var(--font); */
   min-height: 100vh;
@@ -43,6 +46,7 @@ header{
   border: 1px solid var(--black);
   background: var(--grey);
   padding: 3px;
+  height: min-content;
 }
 .book-header{
   display: flex;
@@ -108,11 +112,54 @@ header{
 .book-title{
   font-size: 1.5em;
   font-weight: bold;
+  line-height: 1em;
+  padding-bottom: 3px;
 }
 .book-read{
   display: flex;
   justify-content: flex-end;
   gap: 3px;
+}
+
+#delete-popup{
+  position: absolute;
+  /*! inset: 0 0 0 0; */
+/*   margin: auto; */
+  background: var(--grey);
+  height: min-content;
+  width: 17rem;
+  border: 1px solid black;
+  border-color: white black black white;
+  box-shadow: 1px 1px var(--grey), -1px 1px var(--grey), -1px -1px var(--grey), 1px -1px var(--grey);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, min-content);
+  row-gap: 8px;
+  justify-items: center;
+  z-index: 2;
+}
+#delete-popup-header{
+  background: red;
+  color: white;
+  padding: 1px 1px 1px 5px;
+  grid-column: 1/3;
+  width: 100%;
+}
+#delete-popup-body{
+  text-align: center;
+  grid-column: 1/3;
+}
+#delete-popup button{
+  border: 1px solid black;
+  border-color: white black black white;
+  width: 50%;
+  height: calc(1em + 8px);
+  background: var(--grey);
+  box-shadow: 1px 1px black, -1px 1px black, -1px -1px black, 1px -1px black;
+  margin-bottom: 10px;
+}
+#delete-popup button:active{
+  border-color: black white white black;
 }
 
 #form_con{
