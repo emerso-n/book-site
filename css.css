@@ -7,11 +7,21 @@
   --white: white;
   --font: 'VT323', monospace;
 }
+
+button{
+  border: 1px solid black;
+  border-color: white black black white;
+  background: var(--lightgrey);
+  box-shadow: 1px 1px black, -1px 1px black, -1px -1px black, 1px -1px black;
+}
+button:active{
+  border-color: black white white black;
+  background: var(--grey);
+}
 .hide{
   display: none !important;
 }
 #page_con{
-/*   font-family: var(--font); */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,8 +31,6 @@
   display: flex;
   background: black;
   gap: 1px;
-/*   height: 100vh; */
-/*   align-items: center; */
 }
 header{
   background: #3bbe8d;
@@ -51,6 +59,7 @@ header{
 .book-header{
   display: flex;
   height: 21px;
+  align-items: center;
 }
 .header-txt{
   background: var(--blue);
@@ -62,47 +71,17 @@ header{
   padding-left: 21px;
 }
 .x-btn{
-  background: var(--lightgrey);
-  border: 1px solid var(--black);
-  height: 21px;
-  width: 21px;
+  height: 20px;
+  width: 20px;
   position: relative;
-}
-.x-btn:before, .x-btn:after{
-  content: "";
-  position: absolute;
-  border: 1px solid white;
-  border-color: transparent black black transparent;
-  inset: 0px;
-}
-
-.x-btn:after{
-  border-color: white black black white;
-  inset: 1px;
+  margin-right: 1px;
+  font-size: 20px;
+  line-height: 1px;
+  padding-bottom: 3px;
 }
 .x-btn:active{
-  transform: rotate(180deg);
-}
-.x-btn div{
-  width: 21px;
-  height: 21px;
-  position: relative;
-}
-.x-btn:active div{
-  transform: translate(-1px, -1px);
-}
-.x-btn div:before, .x-btn div:after{
-  content: "";
-  position: absolute;
-  margin: auto;
-  inset: -1px 1px 0 0;
-  background: black;
-  height: 11px;
-  width: 2px;
-  transform: rotate(45deg);
-}
-.x-btn div:after{
-  transform: rotate(-45deg);
+  padding-bottom: 1px;
+  padding-left: 2px;
 }
 .book{
   padding: .5em;
@@ -118,13 +97,15 @@ header{
 .book-read{
   display: flex;
   justify-content: flex-end;
-  gap: 3px;
+  gap: 5px;
+/*   margin-top: 5px; */
 }
+/* .book-read label{
+  padding-right: 5px;
+} */
 
 #delete-popup{
   position: absolute;
-  /*! inset: 0 0 0 0; */
-/*   margin: auto; */
   background: var(--grey);
   height: min-content;
   width: 17rem;
@@ -150,18 +131,19 @@ header{
   grid-column: 1/3;
 }
 #delete-popup button{
-  border: 1px solid black;
-  border-color: white black black white;
   width: 50%;
   height: calc(1em + 8px);
-  background: var(--grey);
-  box-shadow: 1px 1px black, -1px 1px black, -1px -1px black, 1px -1px black;
+}
+/* .edit-btn{
+  width: 20%;
+  visibility: hidden;
+}
+.book-border:hover .edit-btn{
+  visibility: visible;
+} */
+#delete-popup button{
   margin-bottom: 10px;
 }
-#delete-popup button:active{
-  border-color: black white white black;
-}
-
 #form_con{
   background: var(--lightgrey);
   padding: 1rem 4rem 1rem 2rem;
@@ -202,17 +184,10 @@ input:focus-visible + label:before{
 }
 .input-cb{
   align-self: flex-end;
-/*   gap: 5px; */
 }
 #submit-btn{
-  border: 2px solid black;
-  border-color: white var(--darkgrey) var(--darkgrey) white;
   padding: 5px 1rem;
   white-space: nowrap;
-}
-#submit-btn:active{
-  border-color: var(--darkgrey) white white var(--darkgrey);
-  background: var(--grey);
 }
 #button{
   inset: 0 0 0 0;
