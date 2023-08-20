@@ -10,18 +10,27 @@ function guidGenerator () {
   const S4 = function () {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
   }
-  return (S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4())
+  return (
+    S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4()
+  )
 }
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', e => {
   e.preventDefault()
-  const book = new Book(e.target[0].value, e.target[1].value, e.target[2].value, e.target[3].checked)
+  const book = new Book(
+    e.target[0].value,
+    e.target[1].value,
+    e.target[2].value,
+    e.target[3].checked
+  )
   myLibrary[book.id] = book
   createBookDiv(book)
 })
 
 deletePopupBtns[0].addEventListener('click', deleteEntry) // yes btn
-deletePopupBtns[1].addEventListener('click', (e) => deletePopup.classList.add('hide')) // cancel btn
+deletePopupBtns[1].addEventListener('click', e =>
+  deletePopup.classList.add('hide')
+) // cancel btn
 
 let popupParent
 function pressXbtn (e) {
@@ -47,12 +56,14 @@ function movePopup (parent) {
 
 const myLibrary = {}
 
-function Book (title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read
-  this.id = guidGenerator()
+class Book {
+  constructor (title, author, pages, read) {
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
+    this.id = guidGenerator()
+  }
 }
 
 function createDiv (tag, parent, className = '') {
@@ -98,8 +109,6 @@ function createBookDiv (bookObject) {
 function entryReadClick (e) {
   const parent = e.target.parentElement.parentElement.parentElement.id
   myLibrary[parent].read = e.target.checked
-  // console.log(e.target.checked)
-  // console.log(myLibrary)
 }
 
 // function editEntry (e) {
